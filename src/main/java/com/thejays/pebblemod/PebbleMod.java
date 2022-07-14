@@ -24,6 +24,7 @@ public class PebbleMod {
 
         modbus.addListener(ModSetup::init);
 
+
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
     }
 
