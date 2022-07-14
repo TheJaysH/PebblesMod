@@ -3,7 +3,6 @@ package com.thejays.pebblemod.setup;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -15,12 +14,12 @@ public class ModSetup {
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(TAB_NAME) {
         @Override
-        public ItemStack makeIcon(){
-            return new ItemStack(Items.COAL);
+        public ItemStack makeIcon() {
+            return new ItemStack(Blocks.COBBLESTONE);
         }
     };
 
-    public static void init(FMLCommonSetupEvent event){
+    public static void init(FMLCommonSetupEvent event) {
 
     }
 
