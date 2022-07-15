@@ -21,6 +21,7 @@ public class DataGenerators {
         if(event.includeClient()){
             generator.addProvider(new PebbleBlockStates(generator, event.getExistingFileHelper()));
             generator.addProvider(new PebbleItemModels(generator, event.getExistingFileHelper()));
+            generator.addProvider(new PebbleLanguageProvider(generator, "en_us"));
         }
 
     }
