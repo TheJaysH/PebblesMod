@@ -1,0 +1,6 @@
+{
+  "parent": "pebblemod:block/template_pebble",
+  "textures": {
+    "all": "minecraft:block/end_stone"
+  }
+}

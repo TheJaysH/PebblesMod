@@ -26,14 +26,19 @@ public class Registration {
 
     //TODO: this needs to be done via some sort of config file
     //      ideally i want a class that also has the biomes it should be generated in
+    //      PebbleConfig.java is the start of this.
     public static final String[] BLOCKS_TO_CONVERT = {
             "minecraft:stone",
             "minecraft:cobblestone",
+            "minecraft:mossy_cobblestone",
             "minecraft:granite",
             "minecraft:sandstone",
             "minecraft:diorite",
             "minecraft:deepslate",
             "minecraft:calcite",
+            "minecraft:netherrack",
+            "minecraft:end_stone",
+            "minecraft:blackstone",
     };
 
     public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
