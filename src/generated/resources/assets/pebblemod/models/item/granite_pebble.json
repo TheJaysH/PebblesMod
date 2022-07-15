@@ -1,0 +1,22 @@
+{
+  "parent": "pebblemod:block/granite_pebble",
+  "display": {
+    "gui": {
+      "rotation": [
+        20,
+        5,
+        10
+      ],
+      "translation": [
+        0,
+        12,
+        5
+      ],
+      "scale": [
+        2,
+        2,
+        2
+      ]
+    }
+  }
+}

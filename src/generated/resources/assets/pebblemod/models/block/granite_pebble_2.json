@@ -1,0 +1,6 @@
+{
+  "parent": "pebblemod:block/template_two_pebbles",
+  "textures": {
+    "all": "minecraft:block/granite"
+  }
+}

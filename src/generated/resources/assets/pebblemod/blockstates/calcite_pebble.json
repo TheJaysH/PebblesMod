@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "pebbles=1": [
+      {
+        "model": "pebblemod:block/calcite_pebble"
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble",
+        "y": 90
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble",
+        "y": 180
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble",
+        "y": 270
+      }
+    ],
+    "pebbles=2": [
+      {
+        "model": "pebblemod:block/calcite_pebble_2"
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_2",
+        "y": 90
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_2",
+        "y": 180
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_2",
+        "y": 270
+      }
+    ],
+    "pebbles=3": [
+      {
+        "model": "pebblemod:block/calcite_pebble_3"
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_3",
+        "y": 90
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_3",
+        "y": 180
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_3",
+        "y": 270
+      }
+    ],
+    "pebbles=4": [
+      {
+        "model": "pebblemod:block/calcite_pebble_4"
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_4",
+        "y": 90
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_4",
+        "y": 180
+      },
+      {
+        "model": "pebblemod:block/calcite_pebble_4",
+        "y": 270
+      }
+    ]
+  }
+}

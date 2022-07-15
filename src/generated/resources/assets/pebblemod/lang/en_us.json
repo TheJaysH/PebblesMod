@@ -1,0 +1,10 @@
+{
+  "block.pebblemod.calcite_pebble": "Calcite Pebble",
+  "block.pebblemod.cobblestone_pebble": "Cobblestone Pebble",
+  "block.pebblemod.deepslate_pebble": "Deepslate Pebble",
+  "block.pebblemod.diorite_pebble": "Diorite Pebble",
+  "block.pebblemod.granite_pebble": "Granite Pebble",
+  "block.pebblemod.sandstone_pebble": "Sandstone Pebble",
+  "block.pebblemod.stone_pebble": "Stone Pebble",
+  "itemGroup.pebblemod": "Pebbles"
+}
