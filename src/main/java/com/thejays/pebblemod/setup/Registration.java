@@ -2,6 +2,7 @@ package com.thejays.pebblemod.setup;
 
 import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
+import com.thejays.pebblemod.items.PebbleItem;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -58,7 +59,7 @@ public class Registration {
 
 
     public static <B extends Block> RegistryObject<Item> registerItemFromBlock(@NotNull RegistryObject<B> block) {
-        return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), ITEM_PROPERTIES));
+        return ITEMS.register(block.getId().getPath(), () -> new PebbleItem(block.get(), ITEM_PROPERTIES));
     }
 
     public static RegistryObject<Block> registerPebbleBlock(String name, ResourceLocation resourceLocation){
