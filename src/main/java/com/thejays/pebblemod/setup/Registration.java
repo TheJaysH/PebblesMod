@@ -3,6 +3,7 @@ package com.thejays.pebblemod.setup;
 import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.items.PebbleItem;
+import com.thejays.pebblemod.items.RockHammerItem;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -20,6 +21,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Registration {
@@ -52,6 +54,10 @@ public class Registration {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UtilReference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UtilReference.MOD_ID);
 
+
+    public static final RegistryObject<Item> IRON_ROCK_HAMMER = ITEMS.register("iron_rock_hammer", () -> new RockHammerItem(ITEM_PROPERTIES.stacksTo(1).durability(576)));
+
+
     public static void init() {
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -67,7 +73,7 @@ public class Registration {
         return ITEMS.register(block.getId().getPath(), () -> new PebbleItem(block.get(), ITEM_PROPERTIES));
     }
 
-    public static RegistryObject<Block> registerPebbleBlock(String name, ResourceLocation resourceLocation){
+    public static RegistryObject<Block> registerPebbleBlock(String name, ResourceLocation resourceLocation) {
         return BLOCKS.register(name, () -> new PebbleBlock(PEBBLE_PROPERTIES, ForgeRegistries.BLOCKS.getValue(resourceLocation)));
     }
 
@@ -75,7 +81,6 @@ public class Registration {
         for (var resourcePath : BLOCKS_TO_CONVERT) {
             var resourceLocation = new ResourceLocation(resourcePath);
             var pebbleName = resourcePath.substring(resourcePath.indexOf(':') + 1) + "_pebble";
-
             var registryObjectBlock = registerPebbleBlock(pebbleName, resourceLocation);
             var registryObjectItem = registerItemFromBlock(registryObjectBlock);
         }
