@@ -46,7 +46,7 @@ public class PebbleBlock extends Block {
 
     public PebbleBlock(Block.Properties properties, Block parentBlock) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(PEBBLES, PebbleHelper.getInteger(1)));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(PEBBLES, PebbleHelper.getInteger(1, 0)));
         this.parentBlock = parentBlock;
     }
 
