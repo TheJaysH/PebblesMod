@@ -8,6 +8,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.locale.Language;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
+import org.apache.commons.codec.language.bm.Lang;
 
 import java.util.Map;
 
@@ -15,9 +16,11 @@ import static com.thejays.pebblemod.setup.ModSetup.TAB_NAME;
 
 public class PebbleLanguageProvider extends LanguageProvider {
 
+    String locale;
 
     public PebbleLanguageProvider(DataGenerator generator, String locale) {
         super(generator, UtilReference.MOD_ID, locale);
+        this.locale = locale;
     }
 
     @Override
@@ -47,12 +50,10 @@ public class PebbleLanguageProvider extends LanguageProvider {
     }
 
     private String getTranslation(Block block, Map<String, String> languageData) {
-
-
         String namespace = block.getRegistryName().getNamespace();
         String blockName = block.getRegistryName().getPath();
-
         String blockTranslationKey = "block." + namespace + "." + blockName;
+
         return languageData.get(blockTranslationKey);
     }
 
