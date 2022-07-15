@@ -10,5 +10,6 @@
   "block.pebblemod.netherrack_pebble": "Netherrack Pebble",
   "block.pebblemod.sandstone_pebble": "Sandstone Pebble",
   "block.pebblemod.stone_pebble": "Stone Pebble",
+  "item.pebblemod.iron_rock_hammer": "Iron Rock Hammer",
   "itemGroup.pebblemod": "Pebbles"
 }
