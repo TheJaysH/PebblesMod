@@ -1,5 +1,6 @@
 package com.thejays.pebblemod.blocks;
 
+import com.thejays.pebblemod.helpers.PebbleHelper;
 import com.thejays.pebblemod.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -24,23 +25,39 @@ public class PebbleBlock extends Block {
     public Block parentBlock;
 
 
-    private static final VoxelShape ONE_PEBBLE_SHAPE =
-            Block.box(3.0D, 0.0D, 3.0D, 12.0D, 1.0D, 12.0D);
-    private static final VoxelShape MULTI_PEBBLE_SHAPE =
-            Block.box(1.0D, 0.0D, 1.0D, 15.0D, 1.0D, 15.0D);
-
+    private static final VoxelShape ONE_PEBBLE_SHAPE = Block.box(
+            3.0D,
+            0.0D,
+            3.0D,
+            12.0D,
+            1.0D,
+            12.0D
+    );
+    private static final VoxelShape MULTI_PEBBLE_SHAPE = Block.box(
+            1.0D,
+            0.0D,
+            1.0D,
+            15.0D,
+            1.0D,
+            15.0D
+    );
 
     public static final IntegerProperty PEBBLES = ModBlockStateProperties.PEBBLES_1_4;
 
-
     public PebbleBlock(Block.Properties properties, Block parentBlock) {
         super(properties);
-        this.registerDefaultState(this.getStateDefinition().any().setValue(PEBBLES, Integer.valueOf(1)));
+        this.registerDefaultState(this.getStateDefinition().any().setValue(PEBBLES, PebbleHelper.getInteger(1)));
         this.parentBlock = parentBlock;
     }
 
     private void removeOnePebble(Level level, BlockPos pos, BlockState state) {
-
+        int i = state.getValue(PEBBLES);
+        if (i <= 1){
+            level.destroyBlock(pos, false);
+        } else {
+            level.setBlock(pos, state.setValue(PEBBLES, PebbleHelper.getInteger(i, -1)), 2);
+            level.blockEvent(pos, state.getBlock(), 2001, Block.getId(state));
+        }
     }
 
     @Override
