@@ -7,18 +7,16 @@ import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.locale.Language;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.data.LanguageProvider;
-import org.apache.commons.codec.language.bm.Lang;
 
 import java.util.Map;
 
 import static com.thejays.pebblemod.setup.ModSetup.TAB_NAME;
 
-public class PebbleLanguageProvider extends LanguageProvider {
+public class LanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
 
     String locale;
 
-    public PebbleLanguageProvider(DataGenerator generator, String locale) {
+    public LanguageProvider(DataGenerator generator, String locale) {
         super(generator, UtilReference.MOD_ID, locale);
         this.locale = locale;
     }
@@ -27,9 +25,9 @@ public class PebbleLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
 
         add("itemGroup." + TAB_NAME, "Pebbles");
+        add(Registration.IRON_ROCK_HAMMER.get(), "Iron Rock Hammer");
 
         addPebbleTranslations();
-
     }
 
     private void addPebbleTranslations() {

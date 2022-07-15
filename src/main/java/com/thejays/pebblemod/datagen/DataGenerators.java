@@ -15,13 +15,16 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
 
         if (event.includeServer()){
-
+            generator.addProvider(new OtherRecipes(generator));
+            generator.addProvider(new PebbleRecipes(generator));
         }
 
         if(event.includeClient()){
             generator.addProvider(new PebbleBlockStates(generator, event.getExistingFileHelper()));
             generator.addProvider(new PebbleItemModels(generator, event.getExistingFileHelper()));
-            generator.addProvider(new PebbleLanguageProvider(generator, "en_us"));
+            generator.addProvider(new OtherItemModels(generator, event.getExistingFileHelper()));
+            generator.addProvider(new LanguageProvider(generator, "en_us"));
+//            generator.addProvider(new LanguageProvider(generator, "en_us"));
         }
 
     }
