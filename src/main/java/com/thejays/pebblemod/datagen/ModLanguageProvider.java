@@ -12,11 +12,11 @@ import java.util.Map;
 
 import static com.thejays.pebblemod.setup.ModSetup.TAB_NAME;
 
-public class LanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
+public class ModLanguageProvider extends net.minecraftforge.common.data.LanguageProvider {
 
     String locale;
 
-    public LanguageProvider(DataGenerator generator, String locale) {
+    public ModLanguageProvider(DataGenerator generator, String locale) {
         super(generator, UtilReference.MOD_ID, locale);
         this.locale = locale;
     }
@@ -26,6 +26,7 @@ public class LanguageProvider extends net.minecraftforge.common.data.LanguagePro
 
         add("itemGroup." + TAB_NAME, "Pebbles");
         add(Registration.IRON_ROCK_HAMMER.get(), "Iron Rock Hammer");
+        add(Registration.SAND_PILE.get(), "Sand Pile");
 
         addPebbleTranslations();
     }

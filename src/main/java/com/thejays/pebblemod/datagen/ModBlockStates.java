@@ -13,43 +13,39 @@ import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.List;
-
 import static net.minecraftforge.client.model.generators.ModelProvider.BLOCK_FOLDER;
 
-public class PebbleBlockStates extends BlockStateProvider {
+public class ModBlockStates extends BlockStateProvider {
 
-
-    private String[] pebbleTemplates = {
+    private final String[] PEBBLE_TEMPLATES = {
             "template_pebble",
             "template_two_pebbles",
             "template_three_pebbles",
             "template_four_pebbles"
     };
 
-
-    public PebbleBlockStates(DataGenerator generator, ExistingFileHelper fileHelper) {
-
+    public ModBlockStates(DataGenerator generator, ExistingFileHelper fileHelper) {
         super(generator, UtilReference.MOD_ID, fileHelper);
-        PebbleMod.LOGGER.info("<<<GENERATING MODELS>>>");
     }
 
     @Override
     protected void registerStatesAndModels() {
+        registerPebbles();
+    }
 
-        List<RegistryObject<Block>> pebbles = Registration.getPebbleBlocks();
+    private void registerPebbles() {
+        var pebbles = Registration.getPebbleBlocks();
 
         for (RegistryObject<Block> pebble : pebbles) {
             registerPebble((PebbleBlock) pebble.get());
         }
-
     }
 
-    public void registerPebble(PebbleBlock pebbleBlock) {
+    private void registerPebble(PebbleBlock pebbleBlock) {
         VariantBlockStateBuilder builder = this.getVariantBuilder(pebbleBlock);
-        for (int i = 0; i < pebbleTemplates.length; i++) {
+        for (int i = 0; i < PEBBLE_TEMPLATES.length; i++) {
 
-            String template = pebbleTemplates[i];
+            String template = PEBBLE_TEMPLATES[i];
             String suffix = PebbleHelper.getSuffix(i);
             String path = PebbleHelper.getResourcePath(
                     UtilReference.MOD_ID, BLOCK_FOLDER,

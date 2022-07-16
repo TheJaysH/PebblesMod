@@ -12,15 +12,26 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-public class PebbleItemModels extends ItemModelProvider {
+public class ModItemModels extends ItemModelProvider {
 
-    public PebbleItemModels(DataGenerator generator, ExistingFileHelper fileHelper) {
+    public ModItemModels(DataGenerator generator, ExistingFileHelper fileHelper) {
         super(generator, UtilReference.MOD_ID, fileHelper);
     }
 
     @Override
     protected void registerModels() {
 
+        registerPebbleModels();
+
+        withExistingParent(Registration.IRON_ROCK_HAMMER.get().getRegistryName().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("items/iron_rock_hammer"));
+
+        withExistingParent(Registration.SAND_PILE.get().getRegistryName().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("items/sand_pile"));
+
+    }
+
+    private void registerPebbleModels() {
         var pebbles = Registration.getPebbleItems();
         for (var pebble : pebbles) {
 
@@ -39,7 +50,6 @@ public class PebbleItemModels extends ItemModelProvider {
                     .rotation(20, 5, 10)
                     .translation(0, 12, 5);
         }
-
     }
 
 
