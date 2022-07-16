@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pebblemod",
+  "pattern": [
+    "ppp",
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "pebblemod:netherrack_pebble"
+    }
+  },
+  "result": {
+    "item": "minecraft:netherrack"
+  }
+}

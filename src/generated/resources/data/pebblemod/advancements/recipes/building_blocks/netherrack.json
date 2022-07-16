@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pebblemod:netherrack"
+    ]
+  },
+  "criteria": {
+    "has_netherrack_pebble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pebblemod:netherrack_pebble"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pebblemod:netherrack"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_netherrack_pebble",
+      "has_the_recipe"
+    ]
+  ]
+}

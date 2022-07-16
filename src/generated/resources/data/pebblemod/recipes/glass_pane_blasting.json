@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "group": "pebblemod",
+  "ingredient": {
+    "item": "pebblemod:sand_pile"
+  },
+  "result": "minecraft:glass_pane",
+  "experience": 0.03,
+  "cookingtime": 30
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pebblemod:sand"
+    ]
+  },
+  "criteria": {
+    "has_sand_pile": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pebblemod:sand_pile"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pebblemod:sand"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sand_pile",
+      "has_the_recipe"
+    ]
+  ]
+}

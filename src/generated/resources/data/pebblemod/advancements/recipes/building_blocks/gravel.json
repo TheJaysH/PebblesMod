@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pebblemod:gravel"
+    ]
+  },
+  "criteria": {
+    "has_any_pebble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "pebblemod:pebble/all"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pebblemod:gravel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_any_pebble",
+      "has_the_recipe"
+    ]
+  ]
+}

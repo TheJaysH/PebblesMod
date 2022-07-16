@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "pebblemod:stone_pebble",
+    "pebblemod:cobblestone_pebble",
+    "pebblemod:mossy_cobblestone_pebble",
+    "pebblemod:granite_pebble",
+    "pebblemod:sandstone_pebble",
+    "pebblemod:diorite_pebble",
+    "pebblemod:deepslate_pebble",
+    "pebblemod:calcite_pebble",
+    "pebblemod:netherrack_pebble",
+    "pebblemod:end_stone_pebble",
+    "pebblemod:blackstone_pebble"
+  ]
+}

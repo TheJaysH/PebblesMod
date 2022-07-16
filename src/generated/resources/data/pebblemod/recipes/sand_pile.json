@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pebblemod",
+  "ingredients": [
+    {
+      "item": "pebblemod:iron_rock_hammer"
+    },
+    {
+      "tag": "pebblemod:pebble/all"
+    }
+  ],
+  "result": {
+    "item": "pebblemod:sand_pile"
+  }
+}

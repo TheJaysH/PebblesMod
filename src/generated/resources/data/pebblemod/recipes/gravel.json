@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pebblemod",
+  "pattern": [
+    "pp",
+    "pp"
+  ],
+  "key": {
+    "p": {
+      "tag": "pebblemod:pebble/all"
+    }
+  },
+  "result": {
+    "item": "minecraft:gravel"
+  }
+}

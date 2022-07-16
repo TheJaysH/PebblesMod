@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "pebblemod",
+  "ingredients": [
+    {
+      "item": "pebblemod:iron_rock_hammer"
+    },
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "result": {
+    "item": "pebblemod:sand_pile",
+    "count": 4
+  }
+}

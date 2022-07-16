@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pebblemod",
+  "pattern": [
+    "mm",
+    " s"
+  ],
+  "key": {
+    "m": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "pebblemod:iron_rock_hammer"
+  }
+}

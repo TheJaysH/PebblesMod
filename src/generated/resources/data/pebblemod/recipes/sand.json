@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pebblemod",
+  "pattern": [
+    "ss",
+    "ss"
+  ],
+  "key": {
+    "s": {
+      "item": "pebblemod:sand_pile"
+    }
+  },
+  "result": {
+    "item": "minecraft:sand"
+  }
+}
