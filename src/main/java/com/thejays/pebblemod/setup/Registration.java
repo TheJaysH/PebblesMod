@@ -1,17 +1,13 @@
 package com.thejays.pebblemod.setup;
 
-import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.items.PebbleItem;
 import com.thejays.pebblemod.items.RockHammerItem;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -21,7 +17,6 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Registration {
@@ -56,9 +51,11 @@ public class Registration {
 
 
     public static final RegistryObject<Item> IRON_ROCK_HAMMER = ITEMS.register("iron_rock_hammer", () -> new RockHammerItem(ITEM_PROPERTIES.stacksTo(1).durability(576)));
+    public static final RegistryObject<Item> SAND_PILE = ITEMS.register("sand_pile", () -> new Item(ITEM_PROPERTIES));
 
 
     public static void init() {
+
 
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
