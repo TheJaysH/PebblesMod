@@ -33,6 +33,7 @@ public class ModRecipes extends RecipeProvider {
     }
 
     private void buildShapelessRecipes(Consumer<FinishedRecipe> consumer) {
+
         ShapelessRecipeBuilder.shapeless(Registration.SAND_PILE.get())
                 .group(UtilReference.MOD_ID)
                 .requires(Registration.IRON_ROCK_HAMMER.get())
@@ -78,6 +79,7 @@ public class ModRecipes extends RecipeProvider {
     }
 
     private void buildCookingRecipes(Consumer<FinishedRecipe> consumer) {
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 60)
                 .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
                 .group(UtilReference.MOD_ID)
