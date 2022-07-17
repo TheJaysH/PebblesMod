@@ -5,10 +5,15 @@ import net.minecraft.world.item.ItemStack;
 
 public class RockHammerItem extends Item {
 
-    public final int DAMAGE_USE = 9;
+    private final int itemUseDamage;
 
     public RockHammerItem(Item.Properties properties) {
         super(properties);
+        this.itemUseDamage = 4;
+    }
+    public RockHammerItem(Item.Properties properties, int itemUseDamage) {
+        super(properties);
+        this.itemUseDamage = itemUseDamage;
     }
 
     @Override
@@ -19,7 +24,7 @@ public class RockHammerItem extends Item {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack newStack = new ItemStack(this);
-        newStack.setDamageValue(itemStack.getMaxDamage() + DAMAGE_USE);
+        newStack.setDamageValue(itemStack.getDamageValue() + itemUseDamage);
         return newStack.getDamageValue() >= newStack.getMaxDamage() ? ItemStack.EMPTY : newStack;
     }
 }

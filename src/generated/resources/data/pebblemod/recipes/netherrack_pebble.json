@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:netherrack_pebble"
+    "item": "pebblemod:netherrack_pebble",
+    "count": 4
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "pebblemod:items/diamond_rock_hammer"
+  }
+}

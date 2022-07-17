@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:end_stone_pebble"
+    "item": "pebblemod:end_stone_pebble",
+    "count": 4
   }
 }

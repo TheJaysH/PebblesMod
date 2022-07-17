@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:cobblestone_pebble"
+    "item": "pebblemod:cobblestone_pebble",
+    "count": 4
   }
 }

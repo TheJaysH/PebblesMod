@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:sandstone_pebble"
+    "item": "pebblemod:sandstone_pebble",
+    "count": 4
   }
 }

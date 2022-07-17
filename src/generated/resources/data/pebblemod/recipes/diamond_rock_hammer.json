@@ -7,13 +7,13 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:iron_ingot"
+      "item": "minecraft:diamond"
     },
     "s": {
       "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "pebblemod:iron_rock_hammer"
+    "item": "pebblemod:diamond_rock_hammer"
   }
 }

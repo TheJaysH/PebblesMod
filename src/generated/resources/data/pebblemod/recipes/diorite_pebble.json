@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:diorite_pebble"
+    "item": "pebblemod:diorite_pebble",
+    "count": 4
   }
 }

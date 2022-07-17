@@ -38,7 +38,6 @@ public class Registration {
             "minecraft:blackstone",
     };
 
-    public static final Item.Properties ITEM_PROPERTIES = new Item.Properties().tab(ModSetup.ITEM_GROUP);
     public static final Block.Properties PEBBLE_PROPERTIES = Block.Properties.of(Material.STONE)
             .noOcclusion()
             .strength(0.1f)
@@ -49,14 +48,14 @@ public class Registration {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UtilReference.MOD_ID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UtilReference.MOD_ID);
 
-
-    public static final RegistryObject<Item> IRON_ROCK_HAMMER = ITEMS.register("iron_rock_hammer", () -> new RockHammerItem(ITEM_PROPERTIES.stacksTo(1).durability(576)));
-    public static final RegistryObject<Item> SAND_PILE = ITEMS.register("sand_pile", () -> new Item(ITEM_PROPERTIES));
+    public static final RegistryObject<Item> WOODEN_ROCK_HAMMER = ITEMS.register("wooden_rock_hammer", () -> new RockHammerItem(getItemProperties().stacksTo(1).durability(256)));
+    public static final RegistryObject<Item> STONE_ROCK_HAMMER = ITEMS.register("stone_rock_hammer", () -> new RockHammerItem(getItemProperties().stacksTo(1).durability(512)));
+    public static final RegistryObject<Item> IRON_ROCK_HAMMER = ITEMS.register("iron_rock_hammer", () -> new RockHammerItem(getItemProperties().stacksTo(1).durability(1024)));
+    public static final RegistryObject<Item> DIAMOND_ROCK_HAMMER = ITEMS.register("diamond_rock_hammer", () -> new RockHammerItem(getItemProperties().stacksTo(1).durability(2048)));
+    public static final RegistryObject<Item> SAND_PILE = ITEMS.register("sand_pile", () -> new Item(getItemProperties()));
 
 
     public static void init() {
-
-
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         BLOCKS.register(eventBus);
@@ -67,7 +66,7 @@ public class Registration {
 
 
     public static <B extends Block> RegistryObject<Item> registerItemFromBlock(@NotNull RegistryObject<B> block) {
-        return ITEMS.register(block.getId().getPath(), () -> new PebbleItem(block.get(), ITEM_PROPERTIES));
+        return ITEMS.register(block.getId().getPath(), () -> new PebbleItem(block.get(), getItemProperties()));
     }
 
     public static RegistryObject<Block> registerPebbleBlock(String name, ResourceLocation resourceLocation) {
@@ -95,5 +94,9 @@ public class Registration {
                 .stream()
                 .filter((itemRegistryObject) -> Block.byItem(itemRegistryObject.get().asItem()) instanceof PebbleBlock)
                 .collect(Collectors.toList());
+    }
+
+    private static Item.Properties getItemProperties(){
+        return new Item.Properties().tab(ModSetup.ITEM_GROUP);
     }
 }

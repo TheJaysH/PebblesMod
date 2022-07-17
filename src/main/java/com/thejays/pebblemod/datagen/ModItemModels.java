@@ -23,8 +23,18 @@ public class ModItemModels extends ItemModelProvider {
 
         registerPebbleModels();
 
+        withExistingParent(Registration.WOODEN_ROCK_HAMMER.get().getRegistryName().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("items/wooden_rock_hammer"));
+
+        withExistingParent(Registration.STONE_ROCK_HAMMER.get().getRegistryName().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("items/stone_rock_hammer"));
+
         withExistingParent(Registration.IRON_ROCK_HAMMER.get().getRegistryName().getPath(), mcLoc("item/generated"))
                 .texture("layer0", modLoc("items/iron_rock_hammer"));
+
+        withExistingParent(Registration.DIAMOND_ROCK_HAMMER.get().getRegistryName().getPath(), mcLoc("item/generated"))
+                .texture("layer0", modLoc("items/diamond_rock_hammer"));
+
 
         withExistingParent(Registration.SAND_PILE.get().getRegistryName().getPath(), mcLoc("item/generated"))
                 .texture("layer0", modLoc("items/sand_pile"));

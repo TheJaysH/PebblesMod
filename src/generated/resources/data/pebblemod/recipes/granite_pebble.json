@@ -10,6 +10,7 @@
     }
   ],
   "result": {
-    "item": "pebblemod:granite_pebble"
+    "item": "pebblemod:granite_pebble",
+    "count": 4
   }
 }

@@ -8,6 +8,8 @@ import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -51,12 +53,39 @@ public class ModRecipes extends RecipeProvider {
 
     private void buildShapedRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(Registration.IRON_ROCK_HAMMER.get())
-                .pattern("mm")
+        ShapedRecipeBuilder.shaped(Registration.WOODEN_ROCK_HAMMER.get())
+                .pattern("##")
                 .pattern(" s")
-                .define('m', Items.IRON_INGOT)
+                .define('#', ItemTags.PLANKS)
+                .define('s', Items.STICK)
+                .unlockedBy("has_stick", RecipeProvider.has(Items.STICK))
+                .group(UtilReference.MOD_ID)
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.STONE_ROCK_HAMMER.get())
+                .pattern("##")
+                .pattern(" s")
+                .define('#', ItemTags.STONE_CRAFTING_MATERIALS)
+                .define('s', Items.STICK)
+                .unlockedBy("has_cobblestone", RecipeProvider.has(ItemTags.STONE_CRAFTING_MATERIALS))
+                .group(UtilReference.MOD_ID)
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.IRON_ROCK_HAMMER.get())
+                .pattern("##")
+                .pattern(" s")
+                .define('#', Items.IRON_INGOT)
                 .define('s', Items.STICK)
                 .unlockedBy("has_iron_ingot", RecipeProvider.has(Items.IRON_INGOT))
+                .group(UtilReference.MOD_ID)
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Registration.DIAMOND_ROCK_HAMMER.get())
+                .pattern("##")
+                .pattern(" s")
+                .define('#', Items.DIAMOND)
+                .define('s', Items.STICK)
+                .unlockedBy("has_diamond", RecipeProvider.has(Items.DIAMOND))
                 .group(UtilReference.MOD_ID)
                 .save(consumer);
 
@@ -113,7 +142,7 @@ public class ModRecipes extends RecipeProvider {
 
             PebbleMod.LOGGER.info("Generating Recipe: " + pebble);
 
-            ShapelessRecipeBuilder.shapeless(pebble)
+            ShapelessRecipeBuilder.shapeless(pebble, 4)
                     .group(UtilReference.MOD_ID)
                     .requires(Registration.IRON_ROCK_HAMMER.get())
                     .requires(parentBlock)

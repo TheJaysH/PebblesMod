@@ -25,7 +25,10 @@ public class ModLanguageProvider extends net.minecraftforge.common.data.Language
     protected void addTranslations() {
 
         add("itemGroup." + TAB_NAME, "Pebbles");
+        add(Registration.WOODEN_ROCK_HAMMER.get(), "Wooden Rock Hammer");
+        add(Registration.STONE_ROCK_HAMMER.get(), "Stone Rock Hammer");
         add(Registration.IRON_ROCK_HAMMER.get(), "Iron Rock Hammer");
+        add(Registration.DIAMOND_ROCK_HAMMER.get(), "Diamond Rock Hammer");
         add(Registration.SAND_PILE.get(), "Sand Pile");
 
         addPebbleTranslations();
