@@ -95,6 +95,9 @@ repositories {
     }
     maven {
         url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 }
 
@@ -102,8 +105,11 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
 
     compileOnly fg.deobf("mezz.jei:jei-${jei_version}:api")
+
     implementation fg.deobf("mezz.jei:jei-${jei_version}")
     implementation fg.deobf("curse.maven:the-one-probe-${top_version}")
+
+//    runtimeOnly fg.deobf("curse.maven:nbt-tooltip-${nbt_version}")
 
 }
 
