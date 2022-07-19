@@ -1,5 +1,6 @@
 package com.thejays.pebblemod.setup;
 
+import com.ibm.icu.impl.Pair;
 import com.mojang.serialization.Codec;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.helpers.PebbleConfig;
@@ -9,6 +10,7 @@ import com.thejays.pebblemod.items.RockHammerItem;
 import com.thejays.pebblemod.utils.UtilReference;
 import com.thejays.pebblemod.worldgen.feature.PebbleFeature;
 import com.thejays.pebblemod.worldgen.feature.configurations.PebbleFeatureConfiguration;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -17,6 +19,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -25,6 +29,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,9 +49,11 @@ public class Registration {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
 //    public static final DeferredRegister<Feature<?>> PLACEMENT_FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
 
+    public static final DeferredRegister<Pair<RegistryObject<Block>, Holder<PlacedFeature>>> PLACED_FEATURES =  DeferredRegister.create(new ResourceLocation(UtilReference.MOD_ID, "features"), UtilReference.MOD_ID + "_features");
 
 
-    public static RegistryObject<PebbleFeature> PEBBLE_DEFAULT = FEATURES.register("pebble", () -> new PebbleFeature(PebbleFeatureConfiguration.CODEC));
+
+    public static RegistryObject<Feature<PebbleFeatureConfiguration>> PEBBLE_DEFAULT = FEATURES.register("pebble_feature", () -> new PebbleFeature(PebbleFeatureConfiguration.CODEC));
 
 
 

@@ -1,6 +1,7 @@
 package com.thejays.pebblemod.worldgen;
 
 import com.ibm.icu.impl.Pair;
+import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.setup.Registration;
 import com.thejays.pebblemod.utils.UtilReference;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseThresholdP
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
+
+import static com.thejays.pebblemod.setup.Registration.PEBBLE_DEFAULT;
 
 public class ModGenerationFeatures {
 
@@ -38,10 +42,24 @@ public class ModGenerationFeatures {
 
         var pebbles = Registration.getPebbleBlocks();
 
+        PebbleMod.LOGGER.warn("Adding pebble feature configs: " + pebbles.stream().count());
+
+
+
         for (var pebble : pebbles) {
+
+            PebbleMod.LOGGER.warn("Adding pebble feature config for: " + pebble.get().getRegistryName());
+
             var feature = registerFeature(pebble);
+
+            Registration.PLACED_FEATURES.register(pebble.get().getRegistryName().getPath() + "_feature", ()-> Pair.of(pebble, feature));
+
             placedFeatures.put(pebble, feature);
+
         }
+
+        PebbleMod.LOGGER.warn("Finished adding feature configs: "+ Registration.PLACED_FEATURES.getEntries().stream().count());
+
 
     }
 
@@ -51,11 +69,13 @@ public class ModGenerationFeatures {
         var pebbleBlock = (PebbleBlock) block.get();
         var pebbleConfig = pebbleBlock.getPebbleConfig();
         var pebbleGenerationConfig = pebbleConfig.getPebbleGeneration();
+//        var config = new PebbleFeatureConfiguration(64, 6, 2, getPlacedFeatureHolder(block));
+
         var config = new PebbleFeatureConfiguration(64, 6, 2, getPlacedFeatureHolder(block));
 
         var configuredFeature = FeatureUtils.register(
                 block.get().getRegistryName().getPath(),
-                Registration.PEBBLE_DEFAULT.get(),
+                PEBBLE_DEFAULT.get(),
                 config
         );
 
@@ -67,6 +87,9 @@ public class ModGenerationFeatures {
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP,
                 new ModBiomeFilter(key -> key.equals(pebbleGenerationConfig.getLevel())));
+
+        PebbleMod.LOGGER.warn("returning feature for: " + block.get().getRegistryName());
+
 
         return placementFeature;
     }

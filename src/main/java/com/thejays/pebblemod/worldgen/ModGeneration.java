@@ -24,10 +24,9 @@ public class ModGeneration {
 
     public static void onBiomeLoadingEvent(BiomeLoadingEvent event) {
 
-
-
         var pebbles = Registration.getPebbleBlocks();
         var features = ModGenerationFeatures.placedFeatures;
+//        var features = Registration.PLACED_FEATURES.getEntries();
 
         for (var pebble : pebbles) {
 
@@ -35,10 +34,17 @@ public class ModGeneration {
             var pebbleConfig = pebbleBlock.getPebbleConfig();
             var pebbleGenerationConfig = pebbleConfig.getPebbleGeneration();
 
+
             if (!features.containsKey(pebble))
                 continue;
 
             var feature = features.get(pebble);
+
+
+//            if (features.stream().noneMatch((pair) -> pair.get().first.equals(pebble)))
+//                continue;
+//
+//            var feature = features.stream().filter((pair) -> pair.get().first.equals(pebble)).findFirst().get().get().second;
 
             if (Arrays.stream(pebbleGenerationConfig.getBiomeCategories()).anyMatch((biome) -> event.getCategory() == biome)) {
                 event.getGeneration().addFeature(pebbleGenerationConfig.getDecorationType(), feature);
