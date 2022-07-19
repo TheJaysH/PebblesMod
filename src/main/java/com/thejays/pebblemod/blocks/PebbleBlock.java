@@ -1,5 +1,6 @@
 package com.thejays.pebblemod.blocks;
 
+import com.thejays.pebblemod.helpers.PebbleConfig;
 import com.thejays.pebblemod.helpers.PebbleHelper;
 import com.thejays.pebblemod.state.ModBlockStateProperties;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class PebbleBlock extends Block {
 
-    public Block parentBlock;
+    private PebbleConfig pebbleConfig;
 
 
     private static final VoxelShape ONE_PEBBLE_SHAPE = Block.box(
@@ -44,10 +45,18 @@ public class PebbleBlock extends Block {
 
     public static final IntegerProperty PEBBLES = ModBlockStateProperties.PEBBLES_1_4;
 
-    public PebbleBlock(Block.Properties properties, Block parentBlock) {
+    public PebbleBlock(Block.Properties properties, PebbleConfig pebbleConfig) {
         super(properties);
         this.registerDefaultState(this.getStateDefinition().any().setValue(PEBBLES, PebbleHelper.getInteger(1, 0)));
-        this.parentBlock = parentBlock;
+        this.pebbleConfig = pebbleConfig;
+    }
+
+    public static PebbleBlock create(Block.Properties properties, PebbleConfig pebbleConfig){
+        return new PebbleBlock(properties, pebbleConfig);
+    }
+
+    public PebbleConfig getPebbleConfig() {
+        return this.pebbleConfig;
     }
 
     private void removeOnePebble(Level level, BlockPos pos, BlockState state) {

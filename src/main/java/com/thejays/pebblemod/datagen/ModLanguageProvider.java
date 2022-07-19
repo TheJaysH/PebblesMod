@@ -42,7 +42,7 @@ public class ModLanguageProvider extends net.minecraftforge.common.data.Language
 
             PebbleBlock pebbleBlock = (PebbleBlock) pebbleObject.get();
             String translationKey = "block." + UtilReference.MOD_ID + "." + pebbleBlock.getRegistryName().getPath();
-            String blockTranslation = getTranslation(pebbleBlock.parentBlock, lang);
+            String blockTranslation = getTranslation(pebbleBlock.getPebbleConfig().getParentBlock(), lang);
             String blockName = blockTranslation + " Pebble";
 
             PebbleMod.LOGGER.info("Generating Lang: " + translationKey);

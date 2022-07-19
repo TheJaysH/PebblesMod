@@ -58,7 +58,7 @@ public class ModBlockStates extends BlockStateProvider {
             );
             String parentPath = PebbleHelper.getResourcePath(
                     BLOCK_FOLDER,
-                    pebbleBlock.parentBlock.getRegistryName().getPath()
+                    pebbleBlock.getPebbleConfig().getParentResourceLocation().getPath()
             );
             ResourceLocation parentLocation = mcLoc(parentPath);
 

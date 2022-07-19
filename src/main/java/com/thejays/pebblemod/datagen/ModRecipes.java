@@ -112,7 +112,7 @@ public class ModRecipes extends RecipeProvider {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 60)
                 .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
                 .group(UtilReference.MOD_ID)
-                .save(consumer, new ResourceLocation(UtilReference.MOD_ID,"glass_pane_smelting"));
+                .save(consumer, new ResourceLocation(UtilReference.MOD_ID, "glass_pane_smelting"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 30)
                 .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
@@ -127,7 +127,7 @@ public class ModRecipes extends RecipeProvider {
         for (var pebbleItem : pebbleItems) {
             Item pebble = pebbleItem.get();
             PebbleBlock pebbleBlock = (PebbleBlock) Block.byItem(pebble);
-            Block parentBlock = pebbleBlock.parentBlock;
+            Block parentBlock = pebbleBlock.getPebbleConfig().getParentBlock();
 
             PebbleMod.LOGGER.info("Generating Recipe: " + parentBlock);
 
