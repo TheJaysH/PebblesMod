@@ -42,6 +42,7 @@ public class Registration {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UtilReference.MOD_ID);
 
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
+//    public static final DeferredRegister<Feature<?>> PLACEMENT_FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
 
 
 
