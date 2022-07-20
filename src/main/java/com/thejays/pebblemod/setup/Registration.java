@@ -8,9 +8,11 @@ import com.thejays.pebblemod.helpers.PebbleGeneration;
 import com.thejays.pebblemod.items.PebbleItem;
 import com.thejays.pebblemod.items.RockHammerItem;
 import com.thejays.pebblemod.utils.UtilReference;
+import com.thejays.pebblemod.worldgen.ModGenerationFeatures;
 import com.thejays.pebblemod.worldgen.feature.PebbleFeature;
 import com.thejays.pebblemod.worldgen.feature.configurations.PebbleFeatureConfiguration;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
@@ -18,6 +20,7 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -47,9 +50,11 @@ public class Registration {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UtilReference.MOD_ID);
 
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
+    public static final DeferredRegister<ConfiguredFeature<?, ?>> CONFIGURED_FEATURES = DeferredRegister.create(Registry.CONFIGURED_FEATURE_REGISTRY, UtilReference.MOD_ID);
+    public static final DeferredRegister<PlacedFeature> PLACED_FEATURES = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, UtilReference.MOD_ID);
 //    public static final DeferredRegister<Feature<?>> PLACEMENT_FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, UtilReference.MOD_ID);
 
-    public static final DeferredRegister<Pair<RegistryObject<Block>, Holder<PlacedFeature>>> PLACED_FEATURES =  DeferredRegister.create(new ResourceLocation(UtilReference.MOD_ID, "features"), UtilReference.MOD_ID + "_features");
+//    public static final DeferredRegister<Pair<RegistryObject<Block>, Holder<PlacedFeature>>> PLACED_FEATURES =  DeferredRegister.create(new ResourceLocation(UtilReference.MOD_ID, "features"), UtilReference.MOD_ID + "_features");
 
 
 
@@ -93,6 +98,9 @@ public class Registration {
 
         BLOCKS.register(eventBus);
         ITEMS.register(eventBus);
+        FEATURES.register(eventBus);
+        CONFIGURED_FEATURES.register(eventBus);
+        PLACED_FEATURES.register(eventBus);
     }
 
 

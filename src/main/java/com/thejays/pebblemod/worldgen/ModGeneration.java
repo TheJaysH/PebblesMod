@@ -18,7 +18,6 @@ public class ModGeneration {
 
         ModGenerationFeatures.registerConfiguredFeatures();
 
-
     }
 
 
@@ -47,7 +46,7 @@ public class ModGeneration {
 //            var feature = features.stream().filter((pair) -> pair.get().first.equals(pebble)).findFirst().get().get().second;
 
             if (Arrays.stream(pebbleGenerationConfig.getBiomeCategories()).anyMatch((biome) -> event.getCategory() == biome)) {
-                event.getGeneration().addFeature(pebbleGenerationConfig.getDecorationType(), feature);
+                event.getGeneration().addFeature(pebbleGenerationConfig.getDecorationType(), feature.getHolder().get());
             }
         }
     }
