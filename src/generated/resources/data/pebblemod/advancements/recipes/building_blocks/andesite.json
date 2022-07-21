@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pebblemod:andesite"
+    ]
+  },
+  "criteria": {
+    "has_andesite_pebble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pebblemod:andesite_pebble"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pebblemod:andesite"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_andesite_pebble",
+      "has_the_recipe"
+    ]
+  ]
+}

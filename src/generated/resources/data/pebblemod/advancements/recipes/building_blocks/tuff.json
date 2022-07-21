@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "pebblemod:tuff"
+    ]
+  },
+  "criteria": {
+    "has_tuff_pebble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pebblemod:tuff_pebble"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "pebblemod:tuff"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tuff_pebble",
+      "has_the_recipe"
+    ]
+  ]
+}

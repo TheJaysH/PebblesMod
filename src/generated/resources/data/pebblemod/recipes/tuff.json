@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "pebblemod",
+  "pattern": [
+    "ppp",
+    "ppp",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "pebblemod:tuff_pebble"
+    }
+  },
+  "result": {
+    "item": "minecraft:tuff"
+  }
+}
