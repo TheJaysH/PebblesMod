@@ -35,7 +35,7 @@ public class PebbleGeneration {
     }
 
     public Biome.BiomeCategory[] getBiomeCategories() {
-        return biomeCategories;
+        return biomeCategories == null ? Biome.BiomeCategory.values() : biomeCategories;
     }
 
 
