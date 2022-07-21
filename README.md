@@ -27,6 +27,7 @@ Coming Soon:
 
 - Terracotta Variants
 - Concrete Variants
+- Glowstone Pebble
 </p>
 
 ## Great For Decoration
