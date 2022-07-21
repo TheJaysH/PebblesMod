@@ -51,17 +51,18 @@ public class Registration {
 
     public static final DeferredRegister<PebbleFeaturePair> PLACED_FEATURES = DeferredRegister.create(PLACED_FEATURES_ID, UtilReference.MOD_ID);
 
-    public static RegistryObject<Feature<SimpleBlockConfiguration>> STONE_PEBBLE_FEATURE = FEATURES.register("stone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.STONE)));
-    public static RegistryObject<Feature<SimpleBlockConfiguration>> COBBLESTONE_PEBBLE_FEATURE = FEATURES.register("cobblestone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.STONE)));
-    public static RegistryObject<Feature<SimpleBlockConfiguration>> MOSSY_COBBLESTONE_PEBBLE_FEATURE = FEATURES.register("mossy_cobblestone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRASS_BLOCK, Blocks.STONE)));
+    public static RegistryObject<Feature<SimpleBlockConfiguration>> STONE_PEBBLE_FEATURE = FEATURES.register("stone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.STONE, Blocks.ANDESITE)));
+    public static RegistryObject<Feature<SimpleBlockConfiguration>> COBBLESTONE_PEBBLE_FEATURE = FEATURES.register("cobblestone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.STONE, Blocks.MOSSY_COBBLESTONE)));
+    public static RegistryObject<Feature<SimpleBlockConfiguration>> MOSSY_COBBLESTONE_PEBBLE_FEATURE = FEATURES.register("mossy_cobblestone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRASS_BLOCK, Blocks.DIRT, Blocks.COARSE_DIRT, Blocks.MOSS_BLOCK, Blocks.MOSSY_COBBLESTONE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> GRANITE_PEBBLE_FEATURE = FEATURES.register("granite_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.GRANITE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> DIORITE_PEBBLE_FEATURE = FEATURES.register("diorite_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.DIORITE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> ANDESITE_PEBBLE_FEATURE = FEATURES.register("andesite_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.GRAVEL, Blocks.ANDESITE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> SANDSTONE_PEBBLE_FEATURE = FEATURES.register("sandstone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.SAND, Blocks.SANDSTONE)));
+    public static RegistryObject<Feature<SimpleBlockConfiguration>> RED_SANDSTONE_PEBBLE_FEATURE = FEATURES.register("red_sandstone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.RED_SAND, Blocks.RED_SANDSTONE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> DEEPSLATE_PEBBLE_FEATURE = FEATURES.register("deepslate_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.DEEPSLATE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> TUFF_PEBBLE_FEATURE = FEATURES.register("tuff_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.DEEPSLATE, Blocks.TUFF)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> CALCITE_PEBBLE_FEATURE = FEATURES.register("calcite_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.CALCITE, Blocks.TUFF)));
-    public static RegistryObject<Feature<SimpleBlockConfiguration>> NETHERRACK_PEBBLE_FEATURE = FEATURES.register("netherrack_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.NETHERRACK)));
+    public static RegistryObject<Feature<SimpleBlockConfiguration>> NETHERRACK_PEBBLE_FEATURE = FEATURES.register("netherrack_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.NETHERRACK, Blocks.SOUL_SAND, Blocks.SOUL_SAND)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> BLACKSTONE_PEBBLE_FEATURE = FEATURES.register("blackstone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.BLACKSTONE)));
     public static RegistryObject<Feature<SimpleBlockConfiguration>> END_STONE_PEBBLE_FEATURE = FEATURES.register("end_stone_pebble_feature", () -> new PebbleFeature(SimpleBlockConfiguration.CODEC, List.of(Blocks.END_STONE)));
 
@@ -72,13 +73,14 @@ public class Registration {
     public static final RegistryObject<Block> GRANITE_PEBBLE = registerPebbleBlock("granite_pebble", PebbleConfig.create("minecraft:granite", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
     public static final RegistryObject<Block> DIORITE_PEBBLE = registerPebbleBlock("diorite_pebble", PebbleConfig.create("minecraft:diorite", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
     public static final RegistryObject<Block> ANDESITE_PEBBLE = registerPebbleBlock("andesite_pebble", PebbleConfig.create("minecraft:andesite", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
-    public static final RegistryObject<Block> SANDSTONE_PEBBLE = registerPebbleBlock("sandstone_pebble", PebbleConfig.create("minecraft:sandstone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setBiomeCategories(Biome.BiomeCategory.BEACH, Biome.BiomeCategory.DESERT)));
+    public static final RegistryObject<Block> SANDSTONE_PEBBLE = registerPebbleBlock("sandstone_pebble", PebbleConfig.create("minecraft:sandstone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
+    public static final RegistryObject<Block> RED_SANDSTONE_PEBBLE = registerPebbleBlock("red_sandstone_pebble", PebbleConfig.create("minecraft:red_sandstone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
     public static final RegistryObject<Block> DEEPSLATE_PEBBLE = registerPebbleBlock("deepslate_pebble", PebbleConfig.create("minecraft:deepslate", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
     public static final RegistryObject<Block> TUFF_PEBBLE = registerPebbleBlock("tuff_pebble", PebbleConfig.create("minecraft:tuff", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
     public static final RegistryObject<Block> CALCITE_PEBBLE = registerPebbleBlock("calcite_pebble", PebbleConfig.create("minecraft:calcite", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION)));
-    public static final RegistryObject<Block> NETHERRACK_PEBBLE = registerPebbleBlock("netherrack_pebble", PebbleConfig.create("minecraft:netherrack", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setBiomeCategories(Biome.BiomeCategory.NETHER).setLevel(Level.NETHER)));
-    public static final RegistryObject<Block> BLACKSTONE_PEBBLE = registerPebbleBlock("blackstone_pebble", PebbleConfig.create("minecraft:blackstone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setBiomeCategories(Biome.BiomeCategory.NETHER).setLevel(Level.NETHER)));
-    public static final RegistryObject<Block> END_STONE_PEBBLE = registerPebbleBlock("end_stone_pebble", PebbleConfig.create("minecraft:end_stone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setBiomeCategories(Biome.BiomeCategory.THEEND).setLevel(Level.END)));
+    public static final RegistryObject<Block> NETHERRACK_PEBBLE = registerPebbleBlock("netherrack_pebble", PebbleConfig.create("minecraft:netherrack", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setLevel(Level.NETHER)));
+    public static final RegistryObject<Block> BLACKSTONE_PEBBLE = registerPebbleBlock("blackstone_pebble", PebbleConfig.create("minecraft:blackstone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setLevel(Level.NETHER)));
+    public static final RegistryObject<Block> END_STONE_PEBBLE = registerPebbleBlock("end_stone_pebble", PebbleConfig.create("minecraft:end_stone", PebbleGeneration.create(GenerationStep.Decoration.VEGETAL_DECORATION).setLevel(Level.END)));
 
 
     public static final RegistryObject<Item> STONE_PEBBLE_ITEM = registerItemFromBlock(STONE_PEBBLE);
@@ -87,6 +89,7 @@ public class Registration {
     public static final RegistryObject<Item> GRANITE_PEBBLE_ITEM = registerItemFromBlock(GRANITE_PEBBLE);
     public static final RegistryObject<Item> ANDESITE_PEBBLE_ITEM = registerItemFromBlock(ANDESITE_PEBBLE);
     public static final RegistryObject<Item> SANDSTONE_PEBBLE_ITEM = registerItemFromBlock(SANDSTONE_PEBBLE);
+    public static final RegistryObject<Item> RED_SANDSTONE_PEBBLE_ITEM = registerItemFromBlock(RED_SANDSTONE_PEBBLE);
     public static final RegistryObject<Item> DIORITE_PEBBLE_ITEM = registerItemFromBlock(DIORITE_PEBBLE);
     public static final RegistryObject<Item> DEEPSLATE_PEBBLE_ITEM = registerItemFromBlock(DEEPSLATE_PEBBLE);
     public static final RegistryObject<Item> TUFF_PEBBLE_ITEM = registerItemFromBlock(TUFF_PEBBLE);
@@ -110,6 +113,7 @@ public class Registration {
         put(DIORITE_PEBBLE, DIORITE_PEBBLE_FEATURE);
         put(ANDESITE_PEBBLE, ANDESITE_PEBBLE_FEATURE);
         put(SANDSTONE_PEBBLE, SANDSTONE_PEBBLE_FEATURE);
+        put(RED_SANDSTONE_PEBBLE, RED_SANDSTONE_PEBBLE_FEATURE);
         put(DEEPSLATE_PEBBLE, DEEPSLATE_PEBBLE_FEATURE);
         put(TUFF_PEBBLE, TUFF_PEBBLE_FEATURE);
         put(CALCITE_PEBBLE, CALCITE_PEBBLE_FEATURE);

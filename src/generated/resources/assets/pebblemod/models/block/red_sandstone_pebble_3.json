@@ -1,0 +1,6 @@
+{
+  "parent": "pebblemod:block/template_three_pebbles",
+  "textures": {
+    "all": "minecraft:block/red_sandstone"
+  }
+}
