@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "pebblemod:blackstone_pebble",
+    "pebblemod:netherrack_pebble",
+    "pebblemod:glowstone_pebble"
+  ]
+}

@@ -14,7 +14,6 @@
     "pebblemod:calcite_pebble",
     "pebblemod:netherrack_pebble",
     "pebblemod:blackstone_pebble",
-    "pebblemod:end_stone_pebble",
-    "pebblemod:glowstone_pebble"
+    "pebblemod:end_stone_pebble"
   ]
 }

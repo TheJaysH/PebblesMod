@@ -6,10 +6,10 @@
       "item": "pebblemod:iron_rock_hammer"
     },
     {
-      "tag": "pebblemod:pebble/item/makes_sand"
+      "item": "pebblemod:glowstone_pebble"
     }
   ],
   "result": {
-    "item": "pebblemod:sand_pile"
+    "item": "minecraft:glowstone_dust"
   }
 }
