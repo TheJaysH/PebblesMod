@@ -17,6 +17,7 @@ Pebbles come in many varieties:
 - Mossy Cobblestone
 - Granite
 - Sandstone
+- Red Sandstone
 - Diorite
 - Deepslate
 - Calcite
@@ -24,7 +25,16 @@ Pebbles come in many varieties:
 - End Stone
 - Blackstone
 
+Coming Soon:
+
+- Terracotta Variants
+- Concrete Variants
 </p>
+
+## Great For Decoration
+Assuming you can build better than I can...
+
+<img src="./.github/decoration.png" />
 
 ## World Generation
 Various types of pebbles can be found throughout the world
@@ -41,15 +51,19 @@ Various types of pebbles can be found throughout the world
 #### The End
 <img src="./.github/world_gen_end.gif" />
 
+
+
+
 ## Throw Pebbles
 Just because you can, doesn't mean you should! Don't expect them to do much damge
 <img src="./.github/throw_pebbles.gif" />
 
 
+
 ## Recipes
 
 ### Pebbles
-Any of the supported blocks can be turned into to pebbles using a [RockHammer](#Rock Hammer). They also generate naturally in the world
+Any of the supported blocks can be turned into to pebbles using a [Rock Hammer](#Rock-Hammer). They also generate naturally in the world
 
 <img src="./.github/recipes/pebbles.gif" />
 
