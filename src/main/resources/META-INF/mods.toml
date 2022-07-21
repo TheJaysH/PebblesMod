@@ -5,11 +5,11 @@ license="All rights reserved"
 [[mods]]
 modId="pebblemod"
 version="${file.jarVersion}" #mandatory
-displayName="Pebble Mod" #mandatory
+displayName="Pebbles!" #mandatory
 logoFile="pebblemod.png" #optional
-credits="Thanks for this example mod goes to Java" #optional
-authors="Love, Cheese and small house plants" #optional
+authors="TheJays" #optional
 description='''
+Pebbles! is a Minecraft mod that adds different types of pebbles to the game
 '''
 [[dependencies.pebblemod]] #optional
     modId="forge" #mandatory
