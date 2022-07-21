@@ -7,7 +7,7 @@
 	"elements": [
 		{
 			"from": [5, 0, 3],
-			"to": [9, 2, 7],
+			"to": [8, 1, 6],
 			"faces": {
 				"north": {"uv": [5, 0, 9, 2], "texture": "#all"},
 				"east": {"uv": [1, 4, 5, 6], "texture": "#all"},
@@ -19,7 +19,7 @@
 		},
 		{
 			"from": [1, 0, 9],
-			"to": [5, 2, 13],
+			"to": [4, 1, 12],
 			"faces": {
 				"north": {"uv": [5, 0, 9, 2], "texture": "#all"},
 				"east": {"uv": [1, 4, 5, 6], "texture": "#all"},
