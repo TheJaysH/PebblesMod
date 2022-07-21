@@ -1,6 +1,4 @@
-<p align="center">
-    <img align="center" width="75%" src=".github/pebbles_logo.png" />
-</p>
+![](.github/pebbles_logo.png)
 
 <p>
 Welcome to the Pebbles repository.
