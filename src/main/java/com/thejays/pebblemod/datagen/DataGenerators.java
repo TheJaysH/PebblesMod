@@ -17,14 +17,10 @@ public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
-
-
         if (event.includeServer()) {
-
             var blockTagsProvider = new BlockTagsProvider(generator, UtilReference.MOD_ID, event.getExistingFileHelper());
-
             generator.addProvider(new ModRecipes(generator));
-           generator.addProvider(new ModItemTagsProvider(generator, blockTagsProvider, UtilReference.MOD_ID, event.getExistingFileHelper()));
+            generator.addProvider(new ModItemTagsProvider(generator, blockTagsProvider, UtilReference.MOD_ID, event.getExistingFileHelper()));
         }
 
         if (event.includeClient()) {

@@ -1,10 +1,7 @@
 package com.thejays.pebblemod;
 
 import com.mojang.logging.LogUtils;
-import com.thejays.pebblemod.setup.ClientSetup;
-import com.thejays.pebblemod.setup.Config;
-import com.thejays.pebblemod.setup.ModSetup;
-import com.thejays.pebblemod.setup.Registration;
+import com.thejays.pebblemod.setup.*;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,16 +18,16 @@ public class PebbleMod {
 
 
         ModSetup.setup();
-        Registration.init();
+        RegistryBlocks.init();
+        RegistryItems.init();
+        RegistryFeatures.init();
+
         Config.register();
 
 
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modbus.addListener(ModSetup::init);
-//        modbus.addListener(ModWorldGeneration::registerGenerations);
-
-//        MinecraftForge.EVENT_BUS.addListener(ModWorldGeneration::registerGenerations);
 
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));

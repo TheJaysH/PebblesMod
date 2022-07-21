@@ -6,6 +6,7 @@ import net.minecraftforge.fml.ModLoadingContext;
 
 public class Config {
 
+    public static ForgeConfigSpec.IntValue PEBBLE_DAMAGE;
 
     public static void register(){
         registerCommonConfigs();

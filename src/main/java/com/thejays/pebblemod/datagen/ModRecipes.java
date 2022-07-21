@@ -3,6 +3,7 @@ package com.thejays.pebblemod.datagen;
 import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.setup.Registration;
+import com.thejays.pebblemod.setup.RegistryItems;
 import com.thejays.pebblemod.tags.ModItemTags;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.data.DataGenerator;
@@ -36,24 +37,31 @@ public class ModRecipes extends RecipeProvider {
 
     private void buildShapelessRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapelessRecipeBuilder.shapeless(Registration.SAND_PILE.get())
+        ShapelessRecipeBuilder.shapeless(RegistryItems.SAND_PILE.get())
                 .group(UtilReference.MOD_ID)
-                .requires(Registration.IRON_ROCK_HAMMER.get())
-                .requires(ModItemTags.ALL_PEBBLES)
-                .unlockedBy("has_iron_hammer", RecipeProvider.has(Registration.IRON_ROCK_HAMMER.get()))
+                .requires(RegistryItems.IRON_ROCK_HAMMER.get())
+                .requires(ModItemTags.MAKES_SAND_PEBBLES)
+                .unlockedBy("has_iron_hammer", RecipeProvider.has(RegistryItems.IRON_ROCK_HAMMER.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(Registration.SAND_PILE.get(), 4)
+        ShapelessRecipeBuilder.shapeless(Items.GLOWSTONE_DUST)
                 .group(UtilReference.MOD_ID)
-                .requires(Registration.IRON_ROCK_HAMMER.get())
+                .requires(RegistryItems.IRON_ROCK_HAMMER.get())
+                .requires(RegistryItems.GLOWSTONE_PEBBLE_ITEM.get())
+                .unlockedBy("has_iron_hammer", RecipeProvider.has(RegistryItems.IRON_ROCK_HAMMER.get()))
+                .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(RegistryItems.SAND_PILE.get(), 4)
+                .group(UtilReference.MOD_ID)
+                .requires(RegistryItems.IRON_ROCK_HAMMER.get())
                 .requires(Blocks.GRAVEL)
-                .unlockedBy("has_iron_hammer", RecipeProvider.has(Registration.IRON_ROCK_HAMMER.get()))
+                .unlockedBy("has_iron_hammer", RecipeProvider.has(RegistryItems.IRON_ROCK_HAMMER.get()))
                 .save(consumer, new ResourceLocation(UtilReference.MOD_ID, "sand_pile_from_gravel"));
     }
 
     private void buildShapedRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(Registration.WOODEN_ROCK_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RegistryItems.WOODEN_ROCK_HAMMER.get())
                 .pattern("##")
                 .pattern(" s")
                 .define('#', ItemTags.PLANKS)
@@ -62,7 +70,7 @@ public class ModRecipes extends RecipeProvider {
                 .group(UtilReference.MOD_ID)
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.STONE_ROCK_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RegistryItems.STONE_ROCK_HAMMER.get())
                 .pattern("##")
                 .pattern(" s")
                 .define('#', ItemTags.STONE_CRAFTING_MATERIALS)
@@ -71,7 +79,7 @@ public class ModRecipes extends RecipeProvider {
                 .group(UtilReference.MOD_ID)
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.IRON_ROCK_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RegistryItems.IRON_ROCK_HAMMER.get())
                 .pattern("##")
                 .pattern(" s")
                 .define('#', Items.IRON_INGOT)
@@ -80,7 +88,7 @@ public class ModRecipes extends RecipeProvider {
                 .group(UtilReference.MOD_ID)
                 .save(consumer);
 
-        ShapedRecipeBuilder.shaped(Registration.DIAMOND_ROCK_HAMMER.get())
+        ShapedRecipeBuilder.shaped(RegistryItems.DIAMOND_ROCK_HAMMER.get())
                 .pattern("##")
                 .pattern(" s")
                 .define('#', Items.DIAMOND)
@@ -101,28 +109,28 @@ public class ModRecipes extends RecipeProvider {
         ShapedRecipeBuilder.shaped(Blocks.SAND)
                 .pattern("ss")
                 .pattern("ss")
-                .define('s', Registration.SAND_PILE.get())
-                .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
+                .define('s', RegistryItems.SAND_PILE.get())
+                .unlockedBy("has_sand_pile", RecipeProvider.has(RegistryItems.SAND_PILE.get()))
                 .group(UtilReference.MOD_ID)
                 .save(consumer, new ResourceLocation(UtilReference.MOD_ID, Blocks.SAND.getRegistryName().getPath()));
     }
 
     private void buildCookingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(Registration.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 60)
-                .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(RegistryItems.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 60)
+                .unlockedBy("has_sand_pile", RecipeProvider.has(RegistryItems.SAND_PILE.get()))
                 .group(UtilReference.MOD_ID)
                 .save(consumer, new ResourceLocation(UtilReference.MOD_ID, "glass_pane_smelting"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(Registration.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 30)
-                .unlockedBy("has_sand_pile", RecipeProvider.has(Registration.SAND_PILE.get()))
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(RegistryItems.SAND_PILE.get()), Blocks.GLASS_PANE, 0.03f, 30)
+                .unlockedBy("has_sand_pile", RecipeProvider.has(RegistryItems.SAND_PILE.get()))
                 .group(UtilReference.MOD_ID)
                 .save(consumer, new ResourceLocation(UtilReference.MOD_ID, "glass_pane_blasting"));
 
     }
 
     private void buildPebbleRecipes(Consumer<FinishedRecipe> consumer) {
-        var pebbleItems = Registration.getPebbleItems();
+        var pebbleItems = RegistryItems.getPebbleItems();
 
         for (var pebbleItem : pebbleItems) {
             Item pebble = pebbleItem.get();
@@ -144,9 +152,9 @@ public class ModRecipes extends RecipeProvider {
 
             ShapelessRecipeBuilder.shapeless(pebble, 4)
                     .group(UtilReference.MOD_ID)
-                    .requires(Registration.IRON_ROCK_HAMMER.get())
+                    .requires(RegistryItems.IRON_ROCK_HAMMER.get())
                     .requires(parentBlock)
-                    .unlockedBy("has_iron_hammer", RecipeProvider.has(Registration.IRON_ROCK_HAMMER.get()))
+                    .unlockedBy("has_iron_hammer", RecipeProvider.has(RegistryItems.IRON_ROCK_HAMMER.get()))
                     .save(consumer);
 
         }

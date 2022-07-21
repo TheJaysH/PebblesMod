@@ -2,23 +2,14 @@ package com.thejays.pebblemod.setup;
 
 import com.thejays.pebblemod.utils.UtilReference;
 import com.thejays.pebblemod.worldgen.ModGeneration;
-import com.thejays.pebblemod.worldgen.ModGenerationFeatures;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 @Mod.EventBusSubscriber(modid = UtilReference.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModSetup {
@@ -27,9 +18,9 @@ public class ModSetup {
 
     public static final CreativeModeTab ITEM_GROUP = new CreativeModeTab(TAB_NAME) {
         @Override
-        public ItemStack makeIcon() {
+        public @NotNull ItemStack makeIcon() {
 
-            var pebbles = Registration.getPebbleItems();
+            var pebbles = RegistryItems.getPebbleItems();
             var randomIndex = new Random().nextInt(pebbles.size());
             var pebbleItem = pebbles.get(randomIndex).get();
 
@@ -38,20 +29,14 @@ public class ModSetup {
     };
 
 
-    public static void setup(){
-
-//        bind(ForgeRegistries.FEATURES, ModGenerationFeatures::registerConfiguredFeatures);
-        IEventBus bus = MinecraftForge.EVENT_BUS;
-
-        bus.addListener(ModGeneration::onBiomeLoadingEvent);
+    public static void setup() {
+        MinecraftForge.EVENT_BUS.addListener(ModGeneration::onBiomeLoadingEvent);
     }
 
 
     public static void init(FMLCommonSetupEvent event) {
-
         event.enqueueWork(ModGeneration::registerConfiguredFeatures);
     }
-
 
 
 }

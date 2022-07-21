@@ -8,10 +8,16 @@ import net.minecraft.world.item.Item;
 
 public final class ModItemTags {
 
-    public static final TagKey<Item> ALL_PEBBLES = bind("pebble/item/all");
-    public static final TagKey<Item> COBBLE_PEBBLES = bind("pebble/item/cobble");
+    public static final TagKey<Item> ALL_PEBBLES = register("pebble/item/all");
 
-    private static TagKey<Item> bind(String name) {
+    public static final TagKey<Item> MAKES_SAND_PEBBLES = register("pebble/item/makes_sand");
+
+    public static final TagKey<Item> GLOWSTONE_PEBBLES = register("pebble/item/glowstone");
+    public static final TagKey<Item> NETHER_PEBBLES = register("pebble/item/nether");
+
+    public static final TagKey<Item> COBBLE_PEBBLES = register("pebble/item/cobble");
+
+    private static TagKey<Item> register(String name) {
         return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(UtilReference.MOD_ID, name));
     }
 

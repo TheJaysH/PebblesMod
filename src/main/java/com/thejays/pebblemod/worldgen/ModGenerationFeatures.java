@@ -3,6 +3,9 @@ package com.thejays.pebblemod.worldgen;
 import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.setup.Registration;
+import com.thejays.pebblemod.setup.RegistryBlocks;
+import com.thejays.pebblemod.setup.RegistryFeatures;
+import com.thejays.pebblemod.setup.RegistryItems;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
@@ -24,12 +27,11 @@ public class ModGenerationFeatures {
     public static final HashMap<RegistryObject<Block>, Holder<PlacedFeature>> placedFeatures = new HashMap<>();
 
     public static void registerConfiguredFeatures() {
-        var pebbles = Registration.getPebbleBlocks();
+        var pebbles = RegistryBlocks.getPebbleBlocks();
         PebbleMod.LOGGER.warn("Adding pebble feature configs: " + pebbles.stream().count());
         for (var pebble : pebbles) {
-
 //            Registration.PLACED_FEATURES.register(pebble.get().getRegistryName().getPath() + "_placed_feature", () -> new PebbleFeaturePair(pebble, registerFeature(pebble)));
-
+            //TODO: Need to use the Registry for this
             placedFeatures.put(pebble, registerFeature(pebble));
         }
     }
@@ -39,27 +41,21 @@ public class ModGenerationFeatures {
         var pebbleBlock = (PebbleBlock) block.get();
         var pebbleConfig = pebbleBlock.getPebbleConfig();
         var pebbleGenerationConfig = pebbleConfig.getPebbleGeneration();
-//        var config = new RandomPatchConfiguration(128, 8, 2, getPlacedFeatureHolder(block));
         var config = new SimpleBlockConfiguration(BlockStateProvider.simple(block.get()));
-
-
-        var feature = Registration.BLOCK_TO_FEATURE.get(block);
-
+        var feature = RegistryFeatures.getFeature(block);
         var configuredFeature = FeatureUtils.register(
                 block.get().getRegistryName().getPath(),
                 Feature.RANDOM_PATCH,
-                FeatureUtils.simpleRandomPatchConfiguration(64, PlacementUtils.onlyWhenEmpty(feature.get(), config))
+                FeatureUtils.simpleRandomPatchConfiguration(64, PlacementUtils.onlyWhenEmpty(feature, config))
         );
         var placementFeature = PlacementUtils.register(
                 block.get().getRegistryName().getPath(),
                 configuredFeature,
                 NoiseThresholdCountPlacement.of(-0.8D, 5, 10),
                 InSquarePlacement.spread(),
-//                PlacementUtils.HEIGHTMAP_TOP_SOLID,
                 PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT,
                 new ModBiomeFilter(key -> key.equals(pebbleGenerationConfig.getLevel()))
         );
-        PebbleMod.LOGGER.warn("returning feature for: " + block.get().getRegistryName());
         return placementFeature;
     }
 
@@ -90,9 +86,4 @@ public class ModGenerationFeatures {
                 )
         );
     }
-
-    private static Holder<PlacedFeature> getPlacedFeatureHolder(RegistryObject<Block> block) {
-        return PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK, getSimpleBlockConfiguration(block));
-    }
-
 }

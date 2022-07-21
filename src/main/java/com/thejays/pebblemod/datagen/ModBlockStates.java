@@ -4,6 +4,7 @@ import com.thejays.pebblemod.PebbleMod;
 import com.thejays.pebblemod.blocks.PebbleBlock;
 import com.thejays.pebblemod.helpers.PebbleHelper;
 import com.thejays.pebblemod.setup.Registration;
+import com.thejays.pebblemod.setup.RegistryBlocks;
 import com.thejays.pebblemod.state.ModBlockStateProperties;
 import com.thejays.pebblemod.utils.UtilReference;
 import net.minecraft.data.DataGenerator;
@@ -34,7 +35,7 @@ public class ModBlockStates extends BlockStateProvider {
     }
 
     private void registerPebbles() {
-        var pebbles = Registration.getPebbleBlocks();
+        var pebbles = RegistryBlocks.getPebbleBlocks();
 
         for (RegistryObject<Block> pebble : pebbles) {
             registerPebble((PebbleBlock) pebble.get());
