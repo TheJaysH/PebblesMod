@@ -20,7 +20,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '1.0'
+version = "${jar_version}"
 group = 'com.thejays.pebblemod' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'pebblemod'
 
